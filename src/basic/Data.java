@@ -9,7 +9,7 @@ public class Data {
 
     Random rnd = new Random();
 
-    public Employee createEmployee(){
+    public Employee createEmployee() {
         String nameData = surName[rnd.nextInt(surName.length)] + name[rnd.nextInt(name.length)] + thirdName[rnd.nextInt(thirdName.length)];
         int maxDepartment = 5;
         int minDepartment = 1;

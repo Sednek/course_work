@@ -27,8 +27,8 @@ public class Main {
         //Менюшка по Basic и Advanced заданиям для упрощения тестирования, чтобы несколько раз менять значения.
         Data data = new Data();
 
-        Employee employees[] = new Employee[10];
-        for(int i = 0; i < employees.length; i++) {
+        Employee[] employees = new Employee[10];
+        for (int i = 0; i < employees.length; i++) {
             employees[i] = data.createEmployee();
         }
 
@@ -40,7 +40,7 @@ public class Main {
 
         boolean menu = true;
 
-        while(menu){
+        while (menu) {
             System.out.println(" ");
             System.out.println("Книга сотрудников");
             System.out.println("1.  Получить всю информацию о сотрудниках");
@@ -65,23 +65,23 @@ public class Main {
             int menuButton = in.nextInt();
             System.out.println(" ");
 
-            switch (menuButton){
+            switch (menuButton) {
                 case 1:
                     bs.printEmployeesInfo(employees);
                     break;
 
                 case 2:
-                    System.out.println("Итог: "+ bs.calculateAllMonthSalaries(employees) + " Руб.");
+                    System.out.println("Итог: " + bs.calculateAllMonthSalaries(employees) + " Руб.");
                     break;
 
                 case 3:
                     Employee minSalaryEmployee = bs.findMinSalaryEmployee(employees);
-                    System.out.println("Сотрудник с минимальной зарплатой: " + minSalaryEmployee.getName() +", его зарплата - " + minSalaryEmployee.getSalary() + " Руб.");
+                    System.out.println("Сотрудник с минимальной зарплатой: " + minSalaryEmployee.getName() + ", его зарплата - " + minSalaryEmployee.getSalary() + " Руб.");
                     break;
 
                 case 4:
                     Employee maxSalaryEmployee = bs.findMaxSalaryEmployee(employees);
-                    System.out.println("Сотрудник с максимальной зарплатой: " + maxSalaryEmployee.getName() +", его зарплата - " + maxSalaryEmployee.getSalary() + " Руб.");
+                    System.out.println("Сотрудник с максимальной зарплатой: " + maxSalaryEmployee.getName() + ", его зарплата - " + maxSalaryEmployee.getSalary() + " Руб.");
                     break;
 
                 case 5:
@@ -117,7 +117,7 @@ public class Main {
                 case 10:
                     System.out.print("Введите номер департамента: ");
                     int depToFindSumSalary = in.nextInt();
-                    System.out.println("Итог: "+ as.calculateAllMonthSalariesByDepartment(depToFindSumSalary, employees) + " Руб.");
+                    System.out.println("Итог: " + as.calculateAllMonthSalariesByDepartment(depToFindSumSalary, employees) + " Руб.");
                     break;
 
                 case 11:

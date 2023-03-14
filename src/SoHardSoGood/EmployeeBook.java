@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class EmployeeBook {
     private final Employee[] employees = new Employee[10];
 
-    public void addEmployee(){
-        for(int i = 0; i < employees.length; i++){
+    public void addEmployee() {
+        for (int i = 0; i < employees.length; i++) {
             Scanner in = new Scanner(System.in);
-            if (employees[i] == null){
+            if (employees[i] == null) {
                 System.out.println("Введите имя сотрудника: ");
                 String name = in.nextLine();
                 System.out.println("Введите отдел сотрудника: ");
@@ -24,120 +24,120 @@ public class EmployeeBook {
             }
         }
     }
-    public void fireEmployee(int id){
-        for(int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+
+    public void fireEmployee(int id) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] == null) {
                 continue;
             }
-            if(employees[i].getId() == id){
+            if (employees[i].getId() == id) {
                 employees[i] = null;
             }
         }
     }
 
-    public void changeEmployeeSalary(String name, int id, double salary){
-        for(int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+    public void changeEmployeeSalary(String name, int id, double salary) {
+        for (Employee employee : employees) {
+            if (employee == null) {
                 continue;
             }
-            if(employees[i].getName().equals(name) && employees[i].getId() == id){
-                employees[i].setSalary(salary);
+            if (employee.getName().equals(name) && employee.getId() == id) {
+                employee.setSalary(salary);
             }
         }
     }
 
-    public void changeEmployeeDepartment(String name, int id, int department){
-        for(int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+    public void changeEmployeeDepartment(String name, int id, int department) {
+        for (Employee employee : employees) {
+            if (employee == null) {
                 continue;
             }
-            if(employees[i].getName().equals(name) && employees[i].getId() == id){
-                employees[i].setDepartment(department);
+            if (employee.getName().equals(name) && employee.getId() == id) {
+                employee.setDepartment(department);
             }
         }
     }
 
-    public void printEmployeesByDepartments(){
-        for (int i = 1; i <= 5; i++){
+    public void printEmployeesByDepartments() {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("Отдел №" + i);
-            for (int j = 0; j < employees.length; j++){
-                if(employees[j] == null){
+            for (Employee employee : employees) {
+                if (employee == null) {
                     continue;
                 }
-                if (employees[j].getDepartment() == i){
-                    System.out.printf("id: %d, Имя: %s, Зарплата: %.2f\n", employees[j].getId(), employees[j].getName(), employees[j].getSalary());
+                if (employee.getDepartment() == i) {
+                    System.out.printf("id: %d, Имя: %s, Зарплата: %.2f\n", employee.getId(), employee.getName(), employee.getSalary());
                 }
             }
         }
     }
 
 
-
-    public void printEmployeesInfo(){
+    public void printEmployeesInfo() {
         for (Employee employee : employees) {
             System.out.println(employee.toString());
         }
     }
 
-    public double calculateAllMonthSalaries(){
+    public double calculateAllMonthSalaries() {
         double sum = 0;
 
-        for(int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+        for (Employee employee : employees) {
+            if (employee == null) {
                 continue;
             }
-            sum = sum + employees[i].getSalary();
+            sum = sum + employee.getSalary();
         }
         return sum;
     }
 
-    public Employee findMinSalaryEmployee(){
+    public Employee findMinSalaryEmployee() {
         double minSalary = 100000;
         Employee minSalaryEmployee = null;
-        for (int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+        for (Employee employee : employees) {
+            if (employee == null) {
                 continue;
             }
-            if (minSalary > employees[i].getSalary()){
-                minSalary = employees[i].getSalary();
+            if (minSalary > employee.getSalary()) {
+                minSalary = employee.getSalary();
             }
         }
-        for (int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+        for (Employee employee : employees) {
+            if (employee == null) {
                 continue;
             }
-            if (minSalary == employees[i].getSalary()){
-                minSalaryEmployee = employees[i];
+            if (minSalary == employee.getSalary()) {
+                minSalaryEmployee = employee;
             }
         }
         return minSalaryEmployee;
     }
 
-    public Employee findMaxSalaryEmployee(){
+    public Employee findMaxSalaryEmployee() {
         double maxSalary = 0;
         Employee maxSalaryEmployee = null;
-        for (int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+        for (Employee employee : employees) {
+            if (employee == null) {
                 continue;
             }
-            if (maxSalary < employees[i].getSalary()) {
-                maxSalary = employees[i].getSalary();
+            if (maxSalary < employee.getSalary()) {
+                maxSalary = employee.getSalary();
             }
         }
-        for (int i = 0; i < employees.length; i++){
-            if (maxSalary == employees[i].getSalary()){
-                maxSalaryEmployee = employees[i];
+        for (Employee employee : employees) {
+            if (maxSalary == employee.getSalary()) {
+                maxSalaryEmployee = employee;
             }
         }
         return maxSalaryEmployee;
     }
 
-    public double findMedianSalary(){
+    public double findMedianSalary() {
         double sum = calculateAllMonthSalaries();
         double median;
         int numOfEmployees = 0;
-        for(int i = 0; i < employees.length; i++){
-            if(employees[i] == null){
+        for (Employee employee : employees) {
+            if (employee == null) {
                 continue;
             }
             numOfEmployees++;
@@ -148,9 +148,9 @@ public class EmployeeBook {
         return median;
     }
 
-    public void printEmployeesNames(){
-        for(Employee e : employees){
-            if(e == null){
+    public void printEmployeesNames() {
+        for (Employee e : employees) {
+            if (e == null) {
                 continue;
             }
             System.out.println(e.getName());
